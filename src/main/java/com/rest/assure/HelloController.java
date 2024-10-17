@@ -23,4 +23,10 @@ public class HelloController {
         String message = "Hello Micronaut";
         return Collections.singletonMap("message", message);
     }
+
+    @Get("/my-json-endpoint")
+    @Produces(MediaType.APPLICATION_JSON)
+    public MyResponse jsonResponse() {
+        return new MyResponse(1, "John Doe");
+    }
 }
