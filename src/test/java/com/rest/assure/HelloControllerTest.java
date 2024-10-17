@@ -35,4 +35,17 @@ public class HelloControllerTest {
                 .contentType(ContentType.JSON)
                 .body("message", equalTo("Hello Micronaut"));
     }
+
+    @Test
+    public void testEndPointReturnsJsonData(RequestSpecification spec) {
+
+        spec
+                .when()
+                .get("/hello/my-json-endpoint")
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("id", equalTo(1))
+                .body("name", equalTo("John Doe"));
+    }
 }
