@@ -14,8 +14,11 @@ repositories {
 dependencies {
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    annotationProcessor("io.micronaut.validation:micronaut-validation-processor")
     annotationProcessor ("org.projectlombok:lombok:1.16.20")
+    implementation("io.micronaut:micronaut-jackson-databind")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.micronaut.validation:micronaut-validation")
     compileOnly("io.micronaut:micronaut-http-client")
     compileOnly ("org.projectlombok:lombok:1.16.20")
     runtimeOnly("ch.qos.logback:logback-classic")
