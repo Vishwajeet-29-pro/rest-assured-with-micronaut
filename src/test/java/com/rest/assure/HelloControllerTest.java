@@ -80,4 +80,14 @@ public class HelloControllerTest {
                 .body("userId",equalTo(1))
                 .body("name", equalTo("John Doe"));
     }
+
+    @Test
+    public void testPathVariableIfRecordNotFoundShouldReturn404(RequestSpecification spec) {
+        spec
+                .pathParam("userId", 99)
+                .when()
+                .get("/hello/getById/{userId}")
+                .then()
+                .statusCode(404);
+    }
 }
