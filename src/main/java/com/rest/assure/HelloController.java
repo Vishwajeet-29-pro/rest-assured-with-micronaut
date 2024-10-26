@@ -41,4 +41,19 @@ public class HelloController {
         }
         return HttpResponse.created(userRequest);
     }
+
+    @Get("/getById/{userId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public HttpResponse<?> getUserById(@PathVariable int userId) {
+        HashMap<Integer, String>  user = new HashMap<>();
+        user.put(1, "John Doe");
+
+        String name = user.get(userId);
+        if (name == null) {
+            return HttpResponse.notFound();
+        }
+        else {
+            return HttpResponse.ok(new UserResponse(userId, name));
+        }
+    }
 }
