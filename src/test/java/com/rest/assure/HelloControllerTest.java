@@ -1,13 +1,11 @@
 package com.rest.assure;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.core.Is.is;
@@ -53,7 +51,6 @@ public class HelloControllerTest {
 
     @Test
     public void testPostRequest(RequestSpecification spec) {
-        String request = "{\"userId\": \"1\", \"name\": \"John Doe\"}";
 
         UserRequest userRequest = new UserRequest(1, "John Doe");
 
