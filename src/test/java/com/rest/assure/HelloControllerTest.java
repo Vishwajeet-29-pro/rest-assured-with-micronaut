@@ -68,4 +68,16 @@ public class HelloControllerTest {
                 .body("userId", notNullValue())
                 .body("name", equalTo("John Doe"));
     }
+
+    @Test
+    public void testPathVariable(RequestSpecification spec) {
+        spec
+                .pathParam("userId", 1)
+                .when()
+                .get("/hello/getById/{userId}")
+                .then()
+                .statusCode(200)
+                .body("userId",equalTo(1))
+                .body("name", equalTo("John Doe"));
+    }
 }
