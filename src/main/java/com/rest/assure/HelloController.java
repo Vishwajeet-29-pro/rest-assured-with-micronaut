@@ -37,8 +37,8 @@ public class HelloController {
     @Produces(MediaType.APPLICATION_JSON)
     public HttpResponse<?> createUser(@Body @Valid UserRequest userRequest) {
         HashMap<Integer, String> user = new HashMap<>();
-        if (userRequest.getUserId() == 0 || userRequest.getName().isEmpty()) {
-            HttpResponse.noContent();
+        if (userRequest.getUserId() == null || userRequest.getUserId() == 0 || userRequest.getName() == null || userRequest.getName().isEmpty()) {
+            return HttpResponse.badRequest("Invalid request: userId and name are required fields."); // 400 response with a message
         }
         return HttpResponse.created(userRequest);
     }
