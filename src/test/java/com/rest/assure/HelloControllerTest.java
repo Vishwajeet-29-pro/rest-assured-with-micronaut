@@ -67,6 +67,18 @@ public class HelloControllerTest {
     }
 
     @Test
+    public void testPostRequestWhenRequestDataIsInSufficient(RequestSpecification spec) {
+        UserRequest userRequest = new UserRequest();
+
+        spec
+                .contentType(ContentType.JSON)
+                .body(userRequest)
+                .post("/hello/my-post-request")
+                .then()
+                .statusCode(400);
+    }
+
+    @Test
     public void testPathVariable(RequestSpecification spec) {
         spec
                 .pathParam("userId", 1)
