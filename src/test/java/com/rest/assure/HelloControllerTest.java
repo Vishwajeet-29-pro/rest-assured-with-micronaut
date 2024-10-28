@@ -87,4 +87,13 @@ public class HelloControllerTest {
                 .then()
                 .statusCode(404);
     }
+
+    @Test
+    public void testNotExistingEndpointShouldReturn404(RequestSpecification spec) {
+        spec
+                .when()
+                .get("/hello/not-a-endpoint")
+                .then()
+                .statusCode(404);
+    }
 }
