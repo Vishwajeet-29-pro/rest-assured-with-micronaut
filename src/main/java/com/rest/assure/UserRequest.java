@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Serdeable
 public class UserRequest {
-    private int userId;
+    private Integer userId;
     private String name;
 }
